@@ -1,6 +1,7 @@
 # norminettとc_formatter_42とclangとlldbを1つのDockerイメージにまとめてみた(vscodecontainer対応版)
 
-タイトルの通り。
+タイトルの通り。しかし、DockerもWSL2を使うらしく、どうせWSL2を使うのであれば、Ubuntuなどを入れる方がかんたんかもしれない。
+VSCodeとの連携はどちらでもできるようです。
 
 ## 背景
 
