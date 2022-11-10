@@ -1,0 +1,7 @@
+"dev.containers.defaultExtensions": [
+	"ms-ceintl.vscode-language-pack-ja",
+	"ms-vscode.cpptools-extension-pack",
+	"keyhr.42-c-format",
+	"kube.42header",
+	"MariusvanWijk-JoppeKoers.codam-norminette-3"
+]

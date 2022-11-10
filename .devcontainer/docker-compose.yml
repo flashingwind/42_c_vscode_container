@@ -1,0 +1,23 @@
+version: "3.3"
+services:
+  42_c_tools-code-sever:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: 42_c_tools-code-sever
+    container_name: 42_c_tools-code-sever
+    volumes:
+      - ..:/code
+      - ./extensions:/root/.vscode-server/extensions
+      - ./insiders-extensions:/root/.vscode-server-insiders/extensions
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Asia/Tokyo
+      - DEFAULT_WORKSPACE=/workspace
+    stdin_open: true
+    tty: true
+    working_dir: /code
+    ports:
+      - 8443:8443
+    restart: unless-stopped

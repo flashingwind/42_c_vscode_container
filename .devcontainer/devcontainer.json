@@ -1,0 +1,32 @@
+{
+	"name": "42_c_tools-code-container",
+	"dockerComposeFile": "./docker-compose.yml",
+	"service": "42_c_tools-code-sever",
+	"shutdownAction": "stopCompose",
+	"forwardPorts": [8443],
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"ms-ceintl.vscode-language-pack-ja",
+				"ms-vscode.cpptools-extension-pack",
+				"keyhr.42-c-format",
+				"kube.42header",
+				"MariusvanWijk-JoppeKoers.codam-norminette-3"
+			],
+			"settings": {
+				"norminette.command": "norminette -R CheckForbiddenSourceHeader",
+				"editor.defaultFormatter": "keyhr.42-c-format"
+			}
+		}
+	},
+	"workspaceFolder": "/code",
+	"settings": {
+		"terminal.integrated.profiles.linux": {
+			"bash": {
+				"path": "/bin/bash"
+			}
+		},
+		"terminal.integrated.defaultProfile.linux": "bash",
+		"postCreateCommand": "chmod +x /root/.vscode-server/extensions/ms-vscode.cpptools-1.12.4-alpine-x64/bin/*"
+	}
+}
