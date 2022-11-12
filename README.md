@@ -17,6 +17,14 @@ Normという規則に従ったコードだ。より現実的には`norminette`�
 
 ところが、`c_formatter_42`はローカルにないと動かないことがわかったので、VSCode(サーバー)もコンテナに入れた。
 
+## 問題
+
+コンテナ起動後、
+
+1. 拡張機能を自分で有効にしないといけない
+1. `norminette`と`c_formatter_42`はVSCodeと連携しているっぽい
+1. コマンドパレットから実行・デバッグ実行すると起動できない(ビルドはされる): .vscode/launch.json、.vscode/tasks.jsonの記述が正しくないためか？
+
 ## 必要なもの(Requirements)
 
 - Docker(利用するときは常に起動していること)
