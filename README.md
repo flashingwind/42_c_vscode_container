@@ -1,26 +1,28 @@
-# norminettとc_formatter_42とclangとlldbを1つのDockerイメージにまとめてみた(vscodecontainer対応版)
+# norminetteとc_formatter_42とclangとlldbを1つのDockerイメージにまとめてみた(vscodecontainer対応版)
 
-タイトルの通り。しかし、DockerもWSL2を使うらしく、どうせWSL2を使うのであれば、Ubuntuなどを入れる方がかんたんかもしれない。
-VSCodeとの連携はどちらでもできるようです。
+タイトルの通り。しかし、Windows版DockerもWSL2を使うらしく、どうせWSL2を使うのであれば、Ubuntuなどを入れる方がかんたんかもしれない。
+VSCodeとの連携は、それぞれに対応する拡張を入れればどちらもできるようです。
 
 ## 背景
 
 42tokyoという特殊な環境では、ある特定のスタイルのコードを書くことが求められる。
 Normという規則に従ったコードだ。より現実的には`norminette`コマンドがエラーを吐かないコードである。
-しかし、現実的にはエラーメッセージが難解で、`c_formatter_42`などコードフォーマッターの力を借りないとやってられない。
+ただ、このエラーメッセージが難解で、`c_formatter_42`などコードフォーマッターの力を借りないとやってられない。
 
-しかし、norminettはmacOS標準のPythonで動かないというやっかいさがある(c_formatter_42は動くかもしれないが)。
+しかし、`norminette`はmacOS標準のPythonでは動かないというやっかいさがある(`c_formatter_42`は動くかもしれないが)。
 
-これがWindowsになると、clang系とは言わずともせめてmingwも入れなくてはならず、なんだかよくわからない設定も必要でもっと面倒だ。
+これがWindowsになると、標準のコンパイラーがなく、clang系とは言わずともせめてmingwを入れなくてはならず、なんだかよくわからない設定も必要でもっと面倒だ。
 
-そこで、Dockerイメージ・Dockerfileを探したところ、norminettには公式のDockerイメージ・Dockerfileがあるが、c_formatter_42はないようだ。別々にDockerイメージを作るとそこそこ容量を食うことであるし、全部まとめてしまうことにした。
+そこで、Dockerイメージ・Dockerfileを探したところ、norminetteには公式のDockerイメージ・Dockerfileがあるが、`c_formatter_42`はないようだ。別々にDockerイメージを作るとそこそこ容量を食うことであるし、全部まとめてしまうことにした。
 
-## 必要なもの(Requirements and Preperation)
+ところが、`c_formatter_42`はローカルにないと動かないことがわかったので、VSCode(サーバー)もコンテナに入れた。
+
+## 必要なもの(Requirements)
 
 - Docker(利用するときは常に起動していること)
-  - (Windows)DockerのためにWSL2もいる(だっったらUbuntuでもいいじゃん……)
+  - (Windows)DockerのためにWSL2もいる
   - (Linux/Linux)`sudo usermod -aG docker $USER`で自分のアカウントでDockerを起動できるようにする
-- git(ダウンロードするためだけなので、このページ上部からzipでダウンロードしてもいい)
+- git(このレポジトリーを一度ダウンロードするためなので、gitを使わず、このページ上部からzipでダウンロードしてもいい)
 - VSCode
   - [VSCodeの「Dev Containers」Extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)も必要
 
@@ -43,7 +45,7 @@ Normという規則に従ったコードだ。より現実的には`norminette`�
 ### Usage (macOS/Linux)
 
 1. パレットからターミナルを開いて、通常通りコンパイル、実行する
-1. norminetteとc_formatter_42も動く
+1. norminetteと`c_formatter_42`も動く
 
 #### Docker特有の注意点
 
