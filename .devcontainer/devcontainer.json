@@ -14,6 +14,7 @@
 				"MariusvanWijk-JoppeKoers.codam-norminette-3"
 			],
 			"settings": {
+				"codam-norminette-3.command": "norminette -R CheckForbiddenSourceHeader",
 				"norminette.command": "norminette -R CheckForbiddenSourceHeader",
 				"editor.defaultFormatter": "keyhr.42-c-format"
 			}
