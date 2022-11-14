@@ -71,4 +71,4 @@ Dockerfileは次のレポジトリーをフォークしてほんのちょっと�
 
 Copyright (c) 2022 IIDA Munenori.
 
-このソフトウェアは[MIT License](https://github.com/flashingwind/42_c_vscode_container/blob/master/LICENSE)のもとで提供します。
+このソフトウェアのうち、私の著作物は[MIT License](https://github.com/flashingwind/42_c_vscode_container/blob/master/LICENSE)のもとで提供します。
