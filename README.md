@@ -19,7 +19,7 @@ VSCodeとの連携は、それぞれに対応する拡張を入れればどち�
 - Docker(利用するときは常に起動していること)
   - (Windows)DockerのためにWSL2もいる
   - (Linux/Linux)`sudo usermod -aG docker $USER`で自分のアカウントでDockerを起動できるようにする
-- git(このレポジトリーを一度ダウンロードするためなので、gitを使わず、このページ上部からzipでダウンロードしてもいい)
+- git(このレポジトリーを一度ダウンロードするためなので、gitを使わず、このページ上部、<> CodeボタンからからDownload ZIPでダウンロードしてもいい)
 - VSCode
   - [VSCodeの「Dev Containers」Extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)も必要
 
@@ -33,27 +33,44 @@ VSCodeとの連携は、それぞれに対応する拡張を入れればどち�
    ```
 1. 作成されたディレクトリーに`cd 42_c_vscode_container`
 1. このディレクトリーに`c00`のようなディレクトリーを置く
-1. `code .`でVSCode起動
-1. 左下、緑のところをクリック、「Reopen in Container」
+
+## Usage
+
+### 起動
+
+1. Dockerを起動
+1. [ctrl]+[o]、このレポジトリーをcloneしたディレクトリーを開いた上代で、なにも選択しないで、「開く」
+1. 左下、緑のところをクリック、「Reopen in Container」選択
 1. しばらくコンテナイメージのビルドに時間がかかる(左下の緑の領域に進行状況が表示されている)
 1. 起動に成功すると、左下の緑の領域に「Dev Container: 42_c_tools-code-container」と表示され、「Getting Started」画面になる
-1. 拡張機能が無効になっている場合があるので、確認し、有効化
+1. 初回は拡張機能が無効になっている場合があるので、確認し、有効化
+1. VSCodeのウィンドウを閉じなければこの状態が維持される
 
-### Usage (macOS/Linux)
+### コードの編集とコンパイル
 
-1. パレットからターミナルを開いて、通常通りコンパイル、実行する
-1. norminetteと`c_formatter_42`も動く
-
-#### Docker特有の注意点
-
-Dockerの外でのカレントディレクトリー`.`をDockerコンテナ内のカレントディレクトリー`/code`に関連づけてあり、絶対パスは`/code/〜`となります。
+1. C言語のソースコードを開いた状態で、[ctrl]+[shift]+[p]でコマンドパレットを開き、`format`と入力すると「Format Document」や
+1. [ctrl]+[shift]+[p]でコマンドパレットを開き、`term`などと打つと、「Terminal: Create New Terminal (In Active Workspace)」を選択し、ターミナルを開く
+1. このターミナルで通常通りコンパイル、実行する
+1. このターミナルでnorminetteと`c_formatter_42`も動く
 
 ## 注意
 
 将来Pythonのバージョン由来のエラーとか、どうしようもないエラー(Pythonのバージョンが古いとか)が起きたら、Dockerfileの中身を自分で編修することDockerfileの中身を自分で編集してほしい。pull reqest歓迎。レポジトリーのオーナーになってくれるともっとありがたい。
 
+## Docker特有の注意点
+
+Dockerの外でのカレントディレクトリー`.`をDockerコンテナ内のカレントディレクトリー`/code`に関連づけてあり、絶対パスは`/code/〜`となります。
+
 ## 謝辞(Thanks)
 
-本レポジトリーは次のレポジトリーをフォークしてほんのちょっと改変したものである。
+Dockerfileは次のレポジトリーをフォークしてほんのちょっと改変したものである。
 
 - [GitHub: alexandregv/norminette-docker)](https://github.com/alexandregv/norminette-docker)
+
+## LICENSE: CC BY-SA 4.0
+
+私が作成した部分は[クリエイティブコモンズ 表示-継承 4.0 国際ライセンス](https://creativecommons.org/licenses/by-sa/4.0/deed.ja)のもとで配布します。再配布時の義務の概要は次のとおりです:
+
+- 表示 — あなたは 適切なクレジットを表示し、ライセンスへのリンクを提供し、変更があったらその旨を示さなければなりません。これらは合理的であればどのような方法で行っても構いませんが、許諾者があなたやあなたの利用行為を支持していると示唆するような方法は除きます。
+- 継承 — もしあなたがこの資料をリミックスしたり、改変したり、加工した場合には、あなたはあなたの貢献部分を元の作品と同じライセンスの下に頒布しなければなりません。
+- 追加的な制約は課せません — あなたは、このライセンスが他の者に許諾することを法的に制限するようないかなる法的規定も技術的手段も適用してはなりません。
