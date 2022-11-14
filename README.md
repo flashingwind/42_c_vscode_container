@@ -67,10 +67,8 @@ Dockerfileは次のレポジトリーをフォークしてほんのちょっと�
 
 - [GitHub: alexandregv/norminette-docker)](https://github.com/alexandregv/norminette-docker)
 
-## LICENSE: CC BY-SA 4.0
+## ライセンス: MIT License
 
-私が作成した部分は[クリエイティブコモンズ 表示-継承 4.0 国際ライセンス](https://creativecommons.org/licenses/by-sa/4.0/deed.ja)のもとで配布します。再配布時の義務の概要は次のとおりです:
+Copyright (c) 2022 IIDA Munenori.
 
-- 表示 — あなたは 適切なクレジットを表示し、ライセンスへのリンクを提供し、変更があったらその旨を示さなければなりません。これらは合理的であればどのような方法で行っても構いませんが、許諾者があなたやあなたの利用行為を支持していると示唆するような方法は除きます。
-- 継承 — もしあなたがこの資料をリミックスしたり、改変したり、加工した場合には、あなたはあなたの貢献部分を元の作品と同じライセンスの下に頒布しなければなりません。
-- 追加的な制約は課せません — あなたは、このライセンスが他の者に許諾することを法的に制限するようないかなる法的規定も技術的手段も適用してはなりません。
+このソフトウェアは[MIT License](https://github.com/flashingwind/42_c_vscode_container/blob/master/LICENSE)のもとで提供します。
