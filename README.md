@@ -1,28 +1,17 @@
-# norminetteとc_formatter_42とclangとlldbを1つのDockerイメージにまとめてみた(vscodecontainer対応版)
+# norminetteとc_formatter_42とclangとlldbを1つのDockerイメージにまとめてみた(VSCode devcontainerから使う想定)
 
-タイトルの通り。しかし、Windows版DockerもWSL2を使うらしく、どうせWSL2を使うのであれば、Ubuntuなどを入れる方がかんたんかもしれない。
-VSCodeとの連携は、それぞれに対応する拡張を入れればどちらもできるようです。
+タイトルの通り。C言語問題のほとんどに対応する。
 
-## 背景
+ただし、Windows版DockerもWSL2を使うらしく、どうせWSL2を使うのであれば、Ubuntuなどを入れる方がかんたんかもしれない。
+VSCodeとの連携は、それぞれに対応する拡張を入れればどちらもできるようです(Ubuntuを使う場合はpipコマンドで2ツールをインストールするなどしてください。code-serverは要るのだろうか……？)。
 
-42tokyoという特殊な環境では、ある特定のスタイルのコードを書くことが求められる。
-Normという規則に従ったコードだ。より現実的には`norminette`コマンドがエラーを吐かないコードである。
-ただ、このエラーメッセージが難解で、`c_formatter_42`などコードフォーマッターの力を借りないとやってられない。
-
-しかし、`norminette`はmacOS標準のPythonでは動かないというやっかいさがある(`c_formatter_42`は動くかもしれないが)。
-
-これがWindowsになると、標準のコンパイラーがなく、clang系とは言わずともせめてmingwを入れなくてはならず、なんだかよくわからない設定も必要でもっと面倒だ。
-
-そこで、Dockerイメージ・Dockerfileを探したところ、norminetteには公式のDockerイメージ・Dockerfileがあるが、`c_formatter_42`はないようだ。別々にDockerイメージを作るとそこそこ容量を食うことであるし、全部まとめてしまうことにした。
-
-ところが、`c_formatter_42`はローカルにないと動かないことがわかったので、VSCode(サーバー)もコンテナに入れた。
-
-## 問題
+## 現状でできること・できないこと
 
 コンテナ起動後、
 
-1. 拡張機能を自分で有効にしないといけない
-1. `norminette`と`c_formatter_42`はVSCodeと連携しているっぽい
+1. インストール済みになっている拡張機能を自分で有効にしないといけない
+1. `norminette`と`c_formatter_42`はVSCodeと上手く連携しているっぽい
+1. Windows環境で
 1. コマンドパレットから実行・デバッグ実行すると起動できない(ビルドはされる): .vscode/launch.json、.vscode/tasks.jsonの記述が正しくないためか？
 
 ## 必要なもの(Requirements)
